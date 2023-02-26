@@ -24,7 +24,7 @@ export default function MemoDetailScreen() {
       </ScrollView>
 
       {/* CircleButtonは独自で定義したものなので、CircleButton.jsxでstyleを適用できるように設定する */}
-      <CircleButton style={{ top: 160, bottom: 'auto' }}>+</CircleButton>
+      <CircleButton style={{ top: 160, bottom: 'auto' }} name='edit-2'/>
 
     </View>
   );

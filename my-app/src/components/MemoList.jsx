@@ -1,6 +1,7 @@
 // 上部のバーのコンポーネント
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Feather } from '@expo/vector-icons'; 
 
 export default function MemoList() {
   return (
@@ -12,7 +13,8 @@ export default function MemoList() {
         </View>
 
         <View>
-          <Text>X</Text>
+          {/* ×アイコン */}
+          <Feather name={'x'} size={16} color='#bobobo'/>
         </View>
       </View>
 
@@ -23,7 +25,7 @@ export default function MemoList() {
         </View>
 
         <View>
-          <Text>X</Text>
+          <Feather name={'x'} size={16} color='#bobobo'/>
         </View>
       </View>
 
@@ -34,7 +36,7 @@ export default function MemoList() {
         </View>
 
         <View>
-          <Text>X</Text>
+          <Feather name={'x'} size={16} color='#bobobo'/>
         </View>
       </View>
     </View>

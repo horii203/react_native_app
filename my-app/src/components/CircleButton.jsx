@@ -1,22 +1,24 @@
 // ボタンのコンポーネント
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { string, shape } from 'prop-types';
+import { Feather } from '@expo/vector-icons'; 
 
 export default function CircleButton(props) {
   // ボタンのプラスマイナスの切り替えはApp.jsxで行う
-  const { children, style } = props;
+  const { style, name } = props;
   return (
     <View style={[styles.circleButtom, style]}>
-      <Text style={styles.circleButtomLabel}>{children}</Text>
+      {/* naneプロパティは＋や－に変更できる */}
+      <Feather name={name} size={32} color="white" />
     </View>
   );
 }
 
-// CircleButtonを使うときchildrenは必須
+// CircleButtonを使うときnameは必須
 CircleButton.propTypes = {
-  children: string.isRequired, //isRequiredデフォルトの場合はデフォルト値の設定不要
   style: shape(),
+  name: string.isRequired,//isRequiredの場合はデフォルト値の設定不要
 }
 
 //デフォルトの値を設定する
