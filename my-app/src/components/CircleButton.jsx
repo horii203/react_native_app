@@ -1,13 +1,13 @@
 // ボタンのコンポーネント
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { string } from 'prop-types';
+import { string, shape } from 'prop-types';
 
 export default function CircleButton(props) {
   // ボタンのプラスマイナスの切り替えはApp.jsxで行う
-  const { children } = props;
+  const { children, style } = props;
   return (
-    <View style={styles.circleButtom}>
+    <View style={[styles.circleButtom, style]}>
       <Text style={styles.circleButtomLabel}>{children}</Text>
     </View>
   );
@@ -15,7 +15,13 @@ export default function CircleButton(props) {
 
 // CircleButtonを使うときchildrenは必須
 CircleButton.propTypes = {
-  children: string.isRequired,
+  children: string.isRequired, //isRequiredデフォルトの場合はデフォルト値の設定不要
+  style: shape(),
+}
+
+//デフォルトの値を設定する
+CircleButton.defaultProps = {
+  style: null,
 }
 
 const styles = StyleSheet.create({
