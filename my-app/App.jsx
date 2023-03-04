@@ -1,9 +1,9 @@
 import React from 'react';
-import MemoListScreen from './src/screens/MemoListScreen';
-// import MemoDetailScreen from './src/screens/MemoDetailScreen';
+// import MemoListScreen from './src/screens/MemoListScreen';
+import MemoCreatScreen from './src/screens/MemoCreatScreen';
 
 export default function App() {
   return (
-    <MemoListScreen/>
+    <MemoCreatScreen/>
   );
 }
