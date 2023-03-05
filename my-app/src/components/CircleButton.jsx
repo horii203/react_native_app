@@ -1,17 +1,17 @@
 // ボタンのコンポーネント
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { string, shape } from 'prop-types';
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import { string, shape, func } from 'prop-types';
 import { Feather } from '@expo/vector-icons'; 
 
 export default function CircleButton(props) {
-  // ボタンのプラスマイナスの切り替えはApp.jsxで行う
-  const { style, name } = props;
+  // ボタンのプラスマイナスの切り替えは親コンポーネントで行う
+  const { style, name, onPress } = props;
   return (
-    <View style={[styles.circleButtom, style]}>
-      {/* naneプロパティは＋や－に変更できる */}
+    <TouchableOpacity style={[styles.circleButtom, style]} onPress={onPress}>
+      {/* naneプロパティを変更することでボタンのアイコンを変更できる */}
       <Feather name={name} size={32} color="white" />
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -19,11 +19,13 @@ export default function CircleButton(props) {
 CircleButton.propTypes = {
   style: shape(),
   name: string.isRequired,//isRequiredの場合はデフォルト値の設定不要
+  onPress: func,// ボタンをタップしたときに実行する関数
 }
 
 //デフォルトの値を設定する
 CircleButton.defaultProps = {
   style: null,
+  onPress: null,
 }
 
 const styles = StyleSheet.create({

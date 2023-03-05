@@ -1,6 +1,6 @@
 // 上部のバーのコンポーネント
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons'; 
 
 export default function MemoList() {
@@ -12,10 +12,10 @@ export default function MemoList() {
           <Text style={styles.memoListItemDate}>2023年1月1日 10:00</Text>
         </View>
 
-        <View>
+        <TouchableOpacity>
           {/* ×アイコン */}
           <Feather name={'x'} size={16} color='#bobobo'/>
-        </View>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.memoListItem}>
@@ -24,9 +24,9 @@ export default function MemoList() {
           <Text style={styles.memoListItemDate}>2023年1月1日 10:00</Text>
         </View>
 
-        <View>
-          <Feather name={'x'} size={16} color='#bobobo'/>
-        </View>
+        <TouchableOpacity>
+            <Feather name={'x'} size={16} color='#bobobo'/>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.memoListItem}>
@@ -35,9 +35,9 @@ export default function MemoList() {
           <Text style={styles.memoListItemDate}>2023年1月1日 10:00</Text>
         </View>
 
-        <View>
+        <TouchableOpacity>
           <Feather name={'x'} size={16} color='#bobobo'/>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

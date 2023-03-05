@@ -1,20 +1,26 @@
 // ボタンのコンポーネント
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { string } from 'prop-types';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { string, func } from 'prop-types';
 
 export default function Button(props) {
-    const { label } = props;
+    const { label, onPress } = props;
   return (
-    <View style={styles.buttonContainer}>
+    <TouchableOpacity style={styles.buttonContainer} onPress={onPress}>
         <Text style={styles.buttonLabel}>{ label }</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
 // labelを定義
 Button.prototype = {
     label: string.isRequired,
+    onPress: func,
+};
+
+//デフォルトの値を設定する
+Button.defaultProps = {
+  onPress: null,
 };
 
 const styles = StyleSheet.create({
@@ -32,5 +38,4 @@ const styles = StyleSheet.create({
         paddingHorizontal: 32,
         color: '#fff'
       },
-    
 })
