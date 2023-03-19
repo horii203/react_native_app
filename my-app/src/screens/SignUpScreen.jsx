@@ -15,13 +15,25 @@ export default function SignUpScreen(props) {
             <TextInput style={styles.input} value='Password'/>
 
             <Button 
-              label="submit"
-              onPress={()=> { navigation.navigate('MemoList') }}   // React Navigation
+              label="Submit"
+              onPress={()=> { 
+                navigation.reset({ // ログイン後のbackボタンを表示させないため履歴の削除
+                  index: 0, 
+                  routes: [{ name: 'MemoList' }],
+                });
+              }}   
             />
 
             <View style={styles.footer}>
                 <Text style={styles.footerText}>Already registered?</Text>
-                <TouchableOpacity>
+                <TouchableOpacity 
+                  onPress={() => { 
+                    navigation.reset({
+                      index: 0, 
+                      routes: [{ name: 'LogIn' }],
+                    });
+                  }}
+                >
                   <Text style={styles.footerLink}>Log In.</Text>
                 </TouchableOpacity>
             </View>

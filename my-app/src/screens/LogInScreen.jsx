@@ -17,12 +17,24 @@ export default function LogInScreen(props) {
 
             <Button 
               label="submit"
-              onPress={()=> { navigation.navigate('MemoList') }}   // React Navigation
+              onPress={()=> { 
+                navigation.reset({ // ログイン後のbackボタンを表示させないため履歴の削除
+                  index: 0, 
+                  routes: [{ name: 'MemoList' }],
+                });
+              }}   
             />
 
             <View style={styles.footer}>
                 <Text style={styles.footerText}>Not registered?</Text>
-                <TouchableOpacity>
+                <TouchableOpacity 
+                  onPress={() => { 
+                    navigation.reset({
+                      index: 0, 
+                      routes: [{ name: 'SignUp' }],
+                    });
+                  }}
+                >
                   <Text style={styles.footerLink}>Sign up here</Text>
                 </TouchableOpacity>
             </View>
