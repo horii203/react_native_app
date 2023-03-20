@@ -1,19 +1,38 @@
 // ログイン画面
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, TextInput, Text, TouchableOpacity } from 'react-native';
 import Button from '../components/Button';
 
 export default function LogInScreen(props) {
   // React Navigation
   const { navigation } = props;
+  const [email, setEmail] = useState('');
+  const [password, sePassword] = useState('');
   
   return (
     <View style={styles.container}>
 
         <View style={styles.inner}>
             <Text style={styles.title}>Log In</Text>
-            <TextInput style={styles.input} value='Email Adress'/>
-            <TextInput style={styles.input} value='Password'/>
+            <TextInput 
+              style={styles.input} 
+              value={email} 
+              //入力した値をtextに入れて関数に渡す
+              onChangeText={(text)=>{ setEmail(text); }}
+              autoCapitalize="none" //最初の文字が大文字にならないように
+              keyboardType="email-address" //@とかがあるキーボードになる
+              placeholder="Email Address"
+              textContentType="emailAddress"
+            />
+            <TextInput 
+              style={styles.input} 
+              value={password} 
+              onChangeText={(text)=>{ sePassword(text); }}
+              autoCapitalize="none"
+              placeholder="Password"
+              secureTextEntry //●で隠す
+              textContentType="password"
+            />
 
             <Button 
               label="submit"
